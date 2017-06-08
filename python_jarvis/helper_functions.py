@@ -1,4 +1,6 @@
 import datetime, re
+from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
+
 
 def convert_epoch_to_date(epoch):
     if not isinstance(epoch, long):
@@ -22,3 +24,17 @@ def _validate_email(email):
         return True
     else:
         return False
+
+
+def send_email(email, message, subject):
+    ## send email to user
+    from_email = 'teamtrex01@gmail.com'
+    to_email = email
+    try:
+        print "try to send email"
+        email = EmailMultiAlternatives(subject, "", from_email, [to_email])
+        email.attach_alternative(message, "text/html")
+        email.send()
+    except BadHeaderError:
+        print 'Invalid header found.'
+    return 0

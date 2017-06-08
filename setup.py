@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
   name = 'python_jarvis',
   packages = ['python_jarvis'], # this must be the same as the name above
-  version = '0.1',
+  version = '0.2',
   description = 'Simple helper functions for python projects',
   author = 'Akash Wankhede',
   author_email = 'acwankhede@gmail.com',
