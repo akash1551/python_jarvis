@@ -2,8 +2,8 @@
 from setuptools import setup
 
 setup(
-  name = 'python-jarvis',
-  packages = ['python-jarvis'], # this must be the same as the name above
+  name = 'python_jarvis',
+  packages = ['python_jarvis'], # this must be the same as the name above
   version = '0.1',
   description = 'Simple helper functions for python projects',
   author = 'Akash Wankhede',
