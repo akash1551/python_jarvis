@@ -4,7 +4,14 @@ def convert_epoch_to_date(epoch):
     if not isinstance(epoch, long):
         return None
 
-    return datetime.datetime.fromtimestamp(long(epoch)/1000.0) if epoch else None
+    return datetime.datetime.fromtimestamp(long(epoch)/1000.0)
+
+
+def convert_date_to_epoch(date):
+    if not isinstance(date, datetime.datetime):
+        return None
+
+    return long(date.strftime('%s'))*1000
 
 
 def _validate_email(email):
