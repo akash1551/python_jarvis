@@ -26,15 +26,15 @@ def _validate_email(email):
         return False
 
 
-def send_email(email, message, subject):
-    ## send email to user
-    from_email = 'teamtrex01@gmail.com'
-    to_email = email
-    try:
-        print "try to send email"
-        email = EmailMultiAlternatives(subject, "", from_email, [to_email])
-        email.attach_alternative(message, "text/html")
-        email.send()
-    except BadHeaderError:
-        print 'Invalid header found.'
-    return 0
+def send_email(email, title, message):
+    if customer.user.email:
+        send_mail(
+            title, # Subject
+            message, # Message
+            '', # From email  # no need to specify. automatically used from settings.py
+            [customer.user.email], # recipient_list
+            fail_silently=False, # If set False, will raise Exception
+        )
+
+    return True
+
